@@ -6,6 +6,17 @@ import MovieList from '../MovieList';
 import Loading from '../Loading';
 import ErrorMessage from '../Error';
 
+const MOVIE_FRAGMENT = gql`
+  fragment movie on Movie {
+    id
+    title
+    releaseDate
+    poster {
+      small
+    }
+  }
+`;
+
 const GET_PEOPLE_MOVIES = gql`
   query($people: String!) {
     searchPeople (query: $people, page : 1) {
@@ -15,17 +26,11 @@ const GET_PEOPLE_MOVIES = gql`
         small
       }
       workedOn {
-        ... on Movie {
-          id
-          title
-          releaseDate
-          poster {
-            small
-          }
-        }
+        ...movie 
       }      
     }
   }
+  ${MOVIE_FRAGMENT}
 `;
 
 const Movies = ({ actor }) => (
@@ -50,7 +55,7 @@ const Movies = ({ actor }) => (
       return (
         <MovieList
           loading={loading}
-          people={searchPeople}
+          movies={searchPeople[0].workedOn}
         />
       );
     }}

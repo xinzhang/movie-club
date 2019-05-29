@@ -12,15 +12,17 @@ import App from './App';
 
 import './style.css';
 
-import introspectionResult from '../introspection-result';
+// import introspectionResult from '../introspection-result';
 
-const fragmentMatcher = new IntrospectionFragmentMatcher({
-  introspectionQueryResultData: introspectionResult,
-});
+// const fragmentMatcher = new IntrospectionFragmentMatcher({
+//   introspectionQueryResultData: introspectionResult,
+// });
 
-const cache = new InMemoryCache({
-  fragmentMatcher,
-});
+// const cache = new InMemoryCache({
+//   fragmentMatcher,
+// });
+
+const cache = new InMemoryCache();
 
 const MOVIE_BASE_URL = 'https://112qaej5y9.execute-api.ap-southeast-2.amazonaws.com/dev/graphql';
 

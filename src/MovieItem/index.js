@@ -1,12 +1,13 @@
 import React from 'react';
+import Paragraph from '../Paragraph'
 
 const MovieItem = ({movie}) => {    
     return (
       movie.poster ? (
         <>
           <img src={movie.poster.small} alt={movie.title} />
-          <p>{movie.title}</p>
-          <p>{movie.releaseDate}</p>
+          <Paragraph variant="m">{movie.title}</Paragraph>
+          <Paragraph variant="s">{movie.releaseDate}</Paragraph>
         </> 
       ) : null
     );      

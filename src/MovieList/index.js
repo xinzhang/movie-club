@@ -5,16 +5,14 @@ import MovieItem from '../MovieItem';
 const MovieList = ({
   movies,
   loading,  
-}) => (
-  <>    
-  <Flex flexWrap="wrap" mb="12">
-    {movies.map((item) => (           
+}) => (  
+  <Flex flexWrap="wrap" m="2" p="2">
+    {movies.filter(item => item.poster).map((item) => (           
         <Box width={[1 / 2, 1 / 3, 1 / 5]} key={`${item.id}_${item.title}`}>
           <MovieItem movie={item} />
         </Box>       
     ))}  
-   </Flex>  
-  </>
-);
+  </Flex>
+)
 
 export default MovieList;

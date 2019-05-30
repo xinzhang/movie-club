@@ -5,6 +5,7 @@ import { Query } from 'react-apollo';
 import Loading from '../Loading';
 import ErrorMessage from '../Error';
 import MovieList from '../MovieList';
+import Paragraph from '../Paragraph';
 
 const GET_MOVIE = gql`
   query($movieName: String!) {
@@ -37,6 +38,10 @@ const Search = ({ movieName }) => (
 
       if (loading && !searchMovies) {
         return <Loading isCenter={true} />;
+      }
+
+      if (searchMovies.length === 0) {
+        return <Paragraph>Can not find any movies.</Paragraph>
       }
 
       return (

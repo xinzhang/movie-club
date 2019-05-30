@@ -9,20 +9,18 @@ import { InMemoryCache, IntrospectionFragmentMatcher } from 'apollo-cache-inmemo
 
 import * as serviceWorker from './serviceWorker';
 import App from './App';
-
 import './style.css';
 
-// import introspectionResult from '../introspection-result';
+import introspectionQueryResultData from './schema.json';
+const fragmentMatcher = new IntrospectionFragmentMatcher({
+  introspectionQueryResultData
+});
 
-// const fragmentMatcher = new IntrospectionFragmentMatcher({
-//   introspectionQueryResultData: introspectionResult,
-// });
+const cache = new InMemoryCache({
+  fragmentMatcher,
+});
 
-// const cache = new InMemoryCache({
-//   fragmentMatcher,
-// });
-
-const cache = new InMemoryCache();
+//const cache = new InMemoryCache();
 
 const MOVIE_BASE_URL = 'https://112qaej5y9.execute-api.ap-southeast-2.amazonaws.com/dev/graphql';
 

@@ -1,0 +1,10 @@
+overwrite: true
+schema: "https://112qaej5y9.execute-api.ap-southeast-2.amazonaws.com/dev/graphql"
+documents: "**/*.graphql"
+generates:
+  src/generated/graphql.ts:
+    plugins:
+      - "fragment-matcher"
+  ./src/schema.json:
+    plugins:
+      - "introspection"

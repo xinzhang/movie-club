@@ -50,12 +50,12 @@ const Movies = ({ actor }) => (
         return <Loading isCenter={true} />;
       }
 
-      console.log(data);
-
+      console.log(searchPeople[0].workedOn);
+      const movies = searchPeople[0].workedOn;
       return (
         <MovieList
           loading={loading}
-          movies={searchPeople[0].workedOn}
+          movies={movies}
         />
       );
     }}
